@@ -1,0 +1,27 @@
+class Solution {
+    public boolean find132pattern(int[] arr) {
+        int x=Integer.MIN_VALUE;
+
+        //int large=0;
+
+        Stack<Integer>s=new Stack<>();
+
+        for(int i=arr.length-1;i>=0;i--)
+        {
+            
+
+            if(arr[i]<x)
+            {
+                return true;
+            }
+
+            while(!s.isEmpty()&&s.peek()<arr[i])
+            {
+                x=s.peek();
+                s.pop();
+            }
+            s.push(arr[i]);
+        }
+        return false;
+    }
+}
